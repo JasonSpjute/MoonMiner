@@ -2,11 +2,9 @@
 <html lang="en">
   <head>
     <title>Title</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
@@ -16,8 +14,17 @@
       </Header>
       <body class="container-fluid">
           <div class="row text-center">
-              <div class="col">
-                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/abstract-art-black-spot-on-white-background-royalty-free-image-1601296944.jpg?resize=980:*" onclick="pull()" alt="planet">
+              <div class="col-3 text-white">
+                <span id="score">DARK MATTER = 0</span>
+              </div>
+              <div class="col6">
+                <img src="black hole 2.png"  onclick="pull()" alt="planet">
+              </div>
+              <div class="col-3 text-white text-center">
+                <button class="btn btn-primary text-black-50" onclick="buyLaser()">Buy Laser</button>
+                <button class="btn btn-primary text-black-50" onclick="buyBlast()">Buy Blast</button>
+                <button class="btn btn-primary text-black-50" onclick="buyDrone()">Buy Drone</button>
+                <button class="btn btn-primary text-black-50" onclick="buySquad()">Buy Squad</button>
               </div>
           </div>
           

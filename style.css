@@ -2,6 +2,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-image: url('https://i.pinimg.com/originals/4a/66/6b/4a666b16cf8a15b9687edb5085012589.jpg');
+    background-size: cover;
 }
 
 header {
@@ -14,4 +16,8 @@ main {
 
 footer{
     min-height: 8vh;
+}
+
+.turn{
+
 }
