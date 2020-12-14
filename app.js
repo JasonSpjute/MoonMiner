@@ -12,21 +12,21 @@ let upgrades = [
     },
     {
         name: "Blaster",
-        price: 5,
+        price: 100,
         quantity: 0,
         multiplier: 5,
         type: "click"
     },
     {
         name: "Drone", 
-        price: 5,
+        price: 500,
         quantity: 0,
         multiplier: 1,
         type: "auto"
     },
     {
         name: "Squad",
-        price: 5,
+        price: 1000,
         quantity: 0,
         multiplier: 5,
         type: "auto"
