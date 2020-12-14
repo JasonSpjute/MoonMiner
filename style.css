@@ -20,4 +20,5 @@ footer{
 
 .fa-spin {
     animation-duration: 30s;
+    max-width: 49vw;
   }

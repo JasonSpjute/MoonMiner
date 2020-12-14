@@ -1,86 +1,96 @@
 let dm = 0
 let hit = 1
-let auto = 1
+let pilot = 0
 
-let clickUpgrades = {
-    laser: {
+let upgrades = [
+    {
+        name: "Laser",
         price: 5,
         quantity: 0,
-        multiplier: 2
+        multiplier: 1,
+        type: "click"
     },
-    blast: {
+    {
+        name: "Blaster",
         price: 5,
         quantity: 0,
-        multiplier: 3
+        multiplier: 5,
+        type: "click"
+    },
+    {
+        name: "Drone", 
+        price: 5,
+        quantity: 0,
+        multiplier: 1,
+        type: "auto"
+    },
+    {
+        name: "Squad",
+        price: 5,
+        quantity: 0,
+        multiplier: 5,
+        type: "auto"
     }
+]
+
+function myAuto(){
+    dm = dm += pilot
+    update()
 }
 
-let automaticUpgrades = {
-    drone: {
-        price: 5,
-        quantity: 0,
-        multiplier: 5
-    },
-    squad: {
-        price: 5,
-        quantity: 0,
-        multiplier: 5
-    }
-}
+
 
 function pull(){
-    dm++
+    dm += hit
     update()
 }
 
 function update(){
-    document.getElementById("score").innerHTML = `DARK MATTER = ${dm}`
+    document.getElementById("score").innerHTML = `<h4>DARK MATTER = ${dm}</h4>`
+    drawButtons()
+    drawUpgrade()
 }
 
-function buyLaser(){
-    let bl = clickUpgrades.laser
-    if(dm >= bl.price){
-        dm = dm - bl.price
-        bl.quantity++
-        bl.price=bl.price*bl.multiplier
-        update()
-        document.getElementById("laserCost").innerHTML = `Buy Laser $${bl.price}`
-        document.getElementById("laserCount").innerHTML = `Lasers = ${bl.quantity}`
+function buy(weapon){
+    let item = upgrades.find(f => f.name == weapon)
+    if(dm >= item.price){
+        dm -= item.price
+        item.quantity++
+        item.price = item.price*2
+        if(item.type == "click"){
+            hit += item.multiplier
+        } else if(item.type == "auto"){
+            pilot += item.multiplier
+        }
     }
+    console.log(hit, pilot)
+    update()
 }
 
-function buyBlast(){
-    let bb = clickUpgrades.blast
-    if(dm >= bb.price){
-        dm = dm - bb.price
-        bb.quantity++
-        bb.price=bb.price*bb.multiplier
-        update()
-        document.getElementById("blastCost").innerHTML = `Buy Blast $${bb.price}`
-        document.getElementById("blastCount").innerHTML = `Blasters = ${bb.quantity}`
-    }
+
+function drawButtons(){
+    let template = ""
+    upgrades.forEach(f => 
+        template += `<div class="row">
+            <div class="col py-3">
+            <button class="btn btn-primary" onclick="buy('${f.name}')">Buy ${f.name.toUpperCase()}: ${f.price}</button>
+            </div>
+        </div>`)
+    document.getElementById("buttons").innerHTML = template
 }
 
-function buyDrone(){
-    let bd = automaticUpgrades.drone
-    if(dm >= bd.price){
-        dm = dm - bd.price
-        bd.quantity++
-        bd.price=bd.price*bd.multiplier
-        update()
-        document.getElementById("droneCost").innerHTML = `Buy Drone $${bd.price}`
-        document.getElementById("droneCount").innerHTML = `Drones = ${bd.quantity}`
-    }
+function drawUpgrade(){
+    let template = ""
+    upgrades.forEach(f => template += 
+        `<div class="row">
+            <div class="col">
+                <span>${f.name} = ${f.quantity}</span>
+            </div>
+        </div>`)
+    document.getElementById("upgradeCount").innerHTML = template
+
 }
 
-function buySquad(){
-    let bs = automaticUpgrades.squad
-    if(dm >= bs.price){
-        dm = dm - bs.price
-        bs.quantity++
-        bs.price=bs.price*bs.multiplier
-        update()
-        document.getElementById("squadCost").innerHTML = `Buy Squad $${bs.price}`
-        document.getElementById("squadCount").innerHTML = `Squads = ${bs.quantity}`
-    }
-}
+update()
+
+setInterval(myAuto, 2000)

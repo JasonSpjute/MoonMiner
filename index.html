@@ -15,40 +15,18 @@
       <body class="container-fluid">
           <div class="row text-center">
               <div class="col-3 text-white">
-                    <div class="row">
+                  <div class="row">
                     <div class="col">
-                      <span id="score">DARK MATTER = 0</span>
-                      <div class="row">
-                          <div class="col">
-                              <span id="laserCount">Lasers = 0</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <span id="blastCount">Blasters = 0</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <span id="droneCount">Drones = 0</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <span id="squadCount">Squads = 0</span>
-                            </div>
-                        </div>
+                      <span id="score"></span>
+                      <span id="upgradeCount"></span>
                     </div>
-                    </div>
-                 </div>
+                  </div>
+              </div>
               <div class="col6">
                 <img src="black hole 2.png" class="fa-spin"  onclick="pull()" alt="planet">
               </div>
               <div class="col-3 text-white text-center">
-                <button class="btn btn-primary text-black-50" id="laserCost" onclick="buyLaser()">Buy Laser $5</button>
-                <button class="btn btn-primary text-black-50" id="blastCost" onclick="buyBlast()">Buy Blast $5</button>
-                <button class="btn btn-primary text-black-50" id="droneCost" onclick="buyDrone()">Buy Drone $5</button>
-                <button class="btn btn-primary text-black-50" id="squadCost" onclick="buySquad()">Buy Squad $5</button>
+                <span id="buttons"></span>
               </div>
           </div>
           
